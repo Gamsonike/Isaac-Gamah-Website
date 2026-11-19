@@ -10,8 +10,11 @@ import { formatDate } from "@/lib/utils";
 type Params = { slug: string };
 
 export const dynamicParams = false;
-// Next.js requires at least one param for static export of dynamic routes; with zero posts the route simply 404s.
-export const generateStaticParams = (): Params[] => getAllPosts().map((p) => ({ slug: p.slug }));
+// A static export needs at least one param; with zero posts a placeholder is emitted that renders notFound().
+export const generateStaticParams = (): Params[] => {
+  const posts = getAllPosts();
+  return posts.length ? posts.map((p) => ({ slug: p.slug })) : [{ slug: "_" }];
+};
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const post = getPost((await params).slug);
