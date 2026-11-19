@@ -5,6 +5,7 @@ import { GithubIcon } from "@/components/ui/icons";
 import { buttonClasses } from "@/components/ui/Button";
 import type { Project } from "@/content/projects";
 import { cn } from "@/lib/utils";
+import { ProjectScreenshot } from "./ProjectScreenshot";
 import { ProjectVisual } from "./ProjectVisual";
 
 export function StatusBadge({ status, tone = "light" }: { status: string; tone?: "light" | "dark" }) {
@@ -26,7 +27,11 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-deep/40 hover:shadow-xl hover:shadow-midnight/10">
       <div className="p-3 pb-0">
-        <ProjectVisual kind={project.visual} title={project.title} />
+        {project.image ? (
+          <ProjectScreenshot image={project.image} title={project.title} sizes="(min-width: 768px) 560px, 100vw" />
+        ) : (
+          <ProjectVisual kind={project.visual} title={project.title} />
+        )}
       </div>
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-center justify-between gap-3">

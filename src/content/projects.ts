@@ -1,5 +1,15 @@
 export type ProjectVisualKind = "toolkit" | "soc" | "shop" | "mobile";
 
+export type ProjectImage = {
+  /** Path inside /public. */
+  src: string;
+  /** Intrinsic pixel size of the original screenshot (keeps the aspect ratio exact). */
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
+};
+
 export type Project = {
   slug: string;
   number: string;
@@ -13,7 +23,10 @@ export type Project = {
   status: string;
   /** Concept / work-in-progress notice shown on the card and detail page. */
   notice?: string;
+  /** Illustrative fallback, used only when no real screenshot exists. */
   visual: ProjectVisualKind;
+  /** Real screenshot of the product. */
+  image?: ProjectImage;
   /** Only set when a real repository URL exists. */
   github?: string;
   /** Only set when a real live URL exists. */
@@ -37,6 +50,13 @@ export const projects: Project[] = [
     stack: ["C#", ".NET", "WPF", "MVVM"],
     status: "In Development",
     visual: "toolkit",
+    image: {
+      src: "/images/projects/gamiphil-toolkit.png",
+      width: 1917,
+      height: 1034,
+      alt: "Gamiphil Toolkit Enterprise dashboard showing system health, CPU load, memory and disk usage, active alerts, recommendations and optimization opportunities.",
+      caption: "Dashboard of the Windows desktop application: system health, CPU, memory and disk usage, active alerts and optimization opportunities.",
+    },
   },
   {
     slug: "gamiphil-soc-analyst",
@@ -72,6 +92,13 @@ export const projects: Project[] = [
     stack: ["HTML", "CSS", "JavaScript", "Netlify"],
     status: "Built",
     visual: "shop",
+    image: {
+      src: "/images/projects/gamiphil-it-shop.png",
+      width: 1910,
+      height: 915,
+      alt: "Gamiphil IT Shop product listing with category filters, laptop prices, view details and add to cart buttons.",
+      caption: "Product listing with category filters, prices, product details and add-to-cart actions.",
+    },
   },
   {
     slug: "ledgerly-sikaly",
@@ -88,6 +115,13 @@ export const projects: Project[] = [
     stack: ["Flutter", "Dart"],
     status: "In Development",
     visual: "mobile",
+    image: {
+      src: "/images/projects/sikaly.png",
+      width: 1914,
+      height: 904,
+      alt: "Sikaly landing page with the headline 'Know your money every day' beside a preview of the mobile app showing balance, today's profit and recent entries.",
+      caption: "Sikaly landing page alongside a preview of the mobile app interface.",
+    },
   },
 ];
 

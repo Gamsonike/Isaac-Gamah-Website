@@ -8,6 +8,7 @@ const basePath = isPages ? "/Isaac-Gamah-Website" : "";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
   ...(isPages && {
     output: "export",
     basePath,

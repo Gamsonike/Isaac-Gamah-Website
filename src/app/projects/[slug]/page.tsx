@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ProjectScreenshot } from "@/components/projects/ProjectScreenshot";
 import { ProjectVisual } from "@/components/projects/ProjectVisual";
 import { StatusBadge } from "@/components/projects/ProjectCard";
 import { ButtonLink } from "@/components/ui/Button";
@@ -36,13 +37,13 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
 
   return (
     <main id="main">
-      <section className="relative overflow-hidden bg-midnight py-14 text-white sm:py-20">
+      <section className={`relative overflow-hidden bg-midnight pt-14 text-white sm:pt-20 ${project.image ? "pb-28 sm:pb-40" : "pb-14 sm:pb-20"}`}>
         <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
         <Container className="relative">
           <Link href="/#projects" className="inline-flex items-center gap-2 text-sm text-mist transition-colors hover:text-white">
             <ArrowLeft size={16} aria-hidden="true" /> All projects
           </Link>
-          <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
+          <div className={project.image ? "mt-8" : "mt-8 grid items-center gap-10 lg:grid-cols-[1fr_1fr]"}>
             <div>
               <Eyebrow tone="dark">Project {project.number}</Eyebrow>
               <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">{project.title}</h1>
@@ -59,12 +60,23 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
                 <p className="mt-3 text-xs text-mist">A public repository link for this project has not been added yet.</p>
               )}
             </div>
-            <ProjectVisual kind={project.visual} title={project.title} />
+            {!project.image && <ProjectVisual kind={project.visual} title={project.title} />}
           </div>
         </Container>
       </section>
 
-      <section className="on-light bg-white py-16 sm:py-20">
+      {project.image && (
+        <section aria-label="Product preview" className="on-light relative -mt-20 bg-[linear-gradient(to_bottom,transparent_5rem,#fff_5rem)] sm:-mt-32 sm:bg-[linear-gradient(to_bottom,transparent_8rem,#fff_8rem)]">
+          <Container>
+            <figure className="mx-auto max-w-6xl">
+              <ProjectScreenshot image={project.image} title={project.title} zoomable priority sizes="(min-width: 1280px) 1152px, 100vw" />
+              <figcaption className="mt-4 text-center font-mono text-xs text-deep-700">{project.image.caption}</figcaption>
+            </figure>
+          </Container>
+        </section>
+      )}
+
+      <section className={`on-light bg-white pb-16 sm:pb-20 ${project.image ? "pt-12 sm:pt-16" : "pt-16 sm:pt-20"}`}>
         <Container className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
             <h2 className="text-2xl font-semibold text-midnight">Overview</h2>

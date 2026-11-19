@@ -15,7 +15,7 @@ export function Projects() {
           align="center"
           eyebrow="Projects"
           title="Selected work across software and security."
-          intro="Desktop, web and mobile projects, plus a defensive-security lab concept. Statuses are shown honestly, and interface previews are illustrations rather than screenshots."
+          intro="Desktop, web and mobile projects, plus a defensive-security lab concept. Statuses are shown honestly. Screenshots are from the real applications; the lab concept uses an illustrative preview."
         />
         <ul className="mt-14 grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
