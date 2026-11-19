@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
+import { PostBody } from "@/components/ui/PostBody";
 import { Container, Eyebrow } from "@/components/ui/Section";
 import { site } from "@/content/site";
 import { getAllPosts, getPost } from "@/lib/posts";
@@ -50,13 +51,7 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
       <article className="on-light bg-white py-14 sm:py-20">
         <Container>
           <div className="max-w-3xl space-y-5 text-lg leading-relaxed text-charcoal/85">
-            {post.body.map((block) =>
-              block.startsWith("## ") ? (
-                <h2 key={block} className="pt-4 text-2xl font-semibold text-midnight">{block.slice(3)}</h2>
-              ) : (
-                <p key={block}>{block}</p>
-              ),
-            )}
+            <PostBody blocks={post.body} />
           </div>
         </Container>
       </article>
