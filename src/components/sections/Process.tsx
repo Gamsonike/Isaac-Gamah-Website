@@ -1,4 +1,5 @@
 import { Container, SectionHeading } from "@/components/ui/Section";
+import { BackdropImage } from "@/components/ui/BackdropImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { processHeading, processSteps, type ProcessStep } from "@/content/process";
 import { Code2, RefreshCcw, Search, ShieldCheck } from "lucide-react";
@@ -14,6 +15,14 @@ const icons: Record<ProcessStep["icon"], ReactNode> = {
 export function Process() {
   return (
     <section id="approach" aria-labelledby="process-title" className="relative overflow-hidden bg-midnight py-20 text-white sm:py-28">
+      <BackdropImage
+        src="/images/backgrounds/circuit.jpg"
+        width={1200}
+        height={800}
+        opacity="opacity-35"
+        objectPosition="30% center"
+        mask="radial-gradient(ellipse 70% 100% at 12% 50%, #000 15%, transparent 75%)"
+      />
       <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
       <Container className="relative">
         <SectionHeading id="process-title" tone="dark" align="center" eyebrow="How I Work" title={processHeading} />

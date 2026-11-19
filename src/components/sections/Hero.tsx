@@ -3,11 +3,20 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
+import { BackdropImage } from "@/components/ui/BackdropImage";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 
 export function Hero() {
   return (
     <section id="home" aria-labelledby="hero-title" className="relative overflow-hidden bg-midnight text-white">
+      <BackdropImage
+        src="/images/backgrounds/circuit.jpg"
+        width={1200}
+        height={800}
+        opacity="opacity-45"
+        objectPosition="70% center"
+        mask="radial-gradient(ellipse 80% 110% at 78% 40%, #000 25%, transparent 80%)"
+      />
       <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
       <div aria-hidden="true" className="absolute -left-40 top-0 h-[28rem] w-[28rem] rounded-full bg-deep/20 blur-3xl" />
       <Container className="relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:py-28">

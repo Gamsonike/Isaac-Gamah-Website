@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
+import { BackdropImage } from "@/components/ui/BackdropImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
 
@@ -10,6 +11,14 @@ export function CtaBand() {
       <Container className="p-0">
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl bg-midnight px-6 py-14 text-center text-white sm:px-14 sm:py-16">
+            <BackdropImage
+              src="/images/backgrounds/secure-key.jpg"
+              width={735}
+              height={401}
+              opacity="opacity-35"
+              objectPosition="75% center"
+              mask="radial-gradient(ellipse 85% 100% at 85% 50%, #000 15%, transparent 75%)"
+            />
             <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
             <div aria-hidden="true" className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-ice/15 blur-3xl" />
             <div className="relative">

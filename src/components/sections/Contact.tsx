@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { BackdropImage } from "@/components/ui/BackdropImage";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Container, Eyebrow } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
@@ -10,6 +11,14 @@ export function Contact() {
   const ico = "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ice/10 text-ice";
   return (
     <section id="contact" aria-labelledby="contact-title" className="relative overflow-hidden bg-midnight py-20 text-white sm:py-28">
+      <BackdropImage
+        src="/images/backgrounds/circuit.jpg"
+        width={1200}
+        height={800}
+        opacity="opacity-35"
+        objectPosition="75% center"
+        mask="radial-gradient(ellipse 70% 100% at 90% 50%, #000 15%, transparent 75%)"
+      />
       <div aria-hidden="true" className="bg-grid-dark absolute inset-0" />
       <Container className="relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
