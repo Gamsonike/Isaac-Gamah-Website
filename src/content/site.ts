@@ -18,5 +18,5 @@ export const site = {
     linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "",
   },
   /** Put a photo in /public (e.g. "/isaac.jpg") and set the path here to show it in About. Empty = monogram. */
-  photo: "",
+  photo: "/images/isaac-gamah.jpg",
 };

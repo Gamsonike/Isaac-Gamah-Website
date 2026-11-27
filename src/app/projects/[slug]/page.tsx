@@ -86,6 +86,22 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             {project.notice && (
               <p className="mt-6 rounded-xl border border-deep/25 bg-soft p-4 text-sm text-deep-700">{project.notice}</p>
             )}
+            {(project.problem || project.solution) && (
+              <div className="mt-12 grid gap-4 sm:grid-cols-2">
+                {project.problem && (
+                  <div className="rounded-2xl border border-line bg-soft p-6">
+                    <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-deep-700">The problem</h2>
+                    <p className="mt-3 leading-relaxed text-charcoal/80">{project.problem}</p>
+                  </div>
+                )}
+                {project.solution && (
+                  <div className="rounded-2xl border border-deep/30 bg-white p-6">
+                    <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-deep-700">The solution</h2>
+                    <p className="mt-3 leading-relaxed text-charcoal/80">{project.solution}</p>
+                  </div>
+                )}
+              </div>
+            )}
             <h2 className="mt-12 text-2xl font-semibold text-midnight">{project.featuresLabel}</h2>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {project.features.map((f) => (
@@ -94,6 +110,18 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
                 </li>
               ))}
             </ul>
+            {project.role && (
+              <>
+                <h2 className="mt-12 text-2xl font-semibold text-midnight">My role and contribution</h2>
+                <ul className="mt-5 space-y-3">
+                  {project.role.map((r) => (
+                    <li key={r} className="flex items-start gap-3 leading-relaxed text-charcoal/85">
+                      <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-deep" /> {r}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
           <aside aria-label="Project facts" className="h-fit rounded-2xl border border-line bg-soft p-6">
             <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-deep-700">Technology</h2>

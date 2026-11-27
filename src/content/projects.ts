@@ -17,6 +17,10 @@ export type Project = {
   tagline: string;
   description: string;
   details: string[];
+  /** Optional case-study sections, rendered on the detail page when present. */
+  problem?: string;
+  solution?: string;
+  role?: string[];
   featuresLabel: string;
   features: string[];
   stack: string[];
@@ -121,6 +125,49 @@ export const projects: Project[] = [
       height: 904,
       alt: "Sikaly landing page with the headline 'Know your money every day' beside a preview of the mobile app showing balance, today's profit and recent entries.",
       caption: "Sikaly landing page alongside a preview of the mobile app interface.",
+    },
+  },
+  {
+    slug: "nkabom",
+    number: "05",
+    title: "Nkabom",
+    tagline: "Web application / FinTech for susu and savings groups",
+    description:
+      "A digital savings-group management platform that helps susu groups track contributions, manage collection schedules and maintain transparent payout records.",
+    details: [
+      "Nkabom is designed to simplify how traditional susu and savings groups manage their contributions and payouts. Instead of relying entirely on manual records and constant communication, members can access a shared view of their group's payment progress, collection schedule and payout history from their phones.",
+      "The platform focuses on transparency, organisation and making savings-group management easier for everyone involved.",
+    ],
+    problem:
+      "Susu and rotating savings groups usually run on notebooks, memory and long chat threads. Members ask the organiser again and again who has paid this month, who collects next and when the last pot was handed over, and a single lost record can create disputes.",
+    solution:
+      "Nkabom gives every group one shared record. The organiser marks contributions as paid, confirms each payout and keeps the collection order up to date, while every member sees the same schedule, payment status and payout history live on their own phone.",
+    role: [
+      "Designed and built the application end to end from a single Flutter codebase.",
+      "Modelled groups, members, contribution cycles and payouts, including the rule that the turn only moves on once a payout is confirmed.",
+      "Implemented phone-number sign-in and live shared groups with Firebase Authentication and Cloud Firestore, with security rules so only the organiser can change records.",
+      "Designed the dashboard, group detail and schedule interfaces.",
+    ],
+    featuresLabel: "Key features",
+    features: [
+      "Monthly contribution tracking",
+      "Member payment status (paid / unpaid)",
+      "Savings-group creation and management",
+      "Collection and payout scheduling",
+      "Visibility into who collects next",
+      "Shared access to group schedules",
+      "Payout history and records",
+      "Reminders to unpaid members",
+    ],
+    stack: ["Flutter", "Dart", "Firebase Authentication", "Cloud Firestore", "Firebase Hosting"],
+    status: "Working MVP",
+    visual: "mobile",
+    image: {
+      src: "/images/projects/nkabom.png",
+      width: 1901,
+      height: 913,
+      alt: "Nkabom dashboard showing a savings group's monthly contribution, the member collecting this month, pot progress, payout due date and each member's paid or unpaid status.",
+      caption: "Group dashboard: this month's collector, pot progress, payout due date and each member's contribution status.",
     },
   },
 ];

@@ -32,8 +32,8 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <PhotoFrame />
-            <ol className="mt-16 border-l border-deep/30 pl-6" aria-label="Professional journey">
+            <PhotoFrame variant="compact" />
+            <ol className="mt-10 border-l border-deep/30 pl-6" aria-label="Professional journey">
               {journey.map((j) => (
                 <li key={j.title} className="relative pb-6 last:pb-0">
                   <span aria-hidden="true" className="absolute -left-[1.85rem] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-deep bg-white" />

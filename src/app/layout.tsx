@@ -45,6 +45,7 @@ const personJsonLd = {
   email: `mailto:${site.email}`,
   jobTitle: "Full-Stack Developer and Cybersecurity Professional",
   description: site.description,
+  ...(site.photo && { image: `${site.url}${site.photo}` }),
   knowsAbout: ["Full-stack development", "Cybersecurity", "IT infrastructure", "Network security", "C#", ".NET", "Flutter"],
   sameAs: [site.socials.github, site.socials.linkedin].filter(Boolean),
 };

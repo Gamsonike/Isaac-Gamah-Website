@@ -19,7 +19,11 @@ export function Projects() {
         />
         <ul className="mt-14 grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
-            <li key={p.slug}>
+            <li
+              key={p.slug}
+              // An odd last card is centred under the two-column grid instead of hanging left.
+              className={i === projects.length - 1 && projects.length % 2 === 1 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]" : undefined}
+            >
               <Reveal delay={(i % 2) * 0.08} className="h-full">
                 <ProjectCard project={p} />
               </Reveal>

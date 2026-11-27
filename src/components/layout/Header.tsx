@@ -67,12 +67,17 @@ export function Header() {
         scrolled || open ? "border-mist/15 bg-midnight/95 backdrop-blur" : "border-transparent bg-midnight",
       )}
     >
-      <div className="hidden border-b border-mist/15 bg-midnight-900 xl:block">
-        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-10 text-xs text-mist">
-          <p className="font-mono tracking-[0.16em] text-ice">{site.tagline}</p>
+      {/* Utility bar: white with the reference Ice Blue (#B8E3E9) kept as the accent rule and marker.
+          Ice is too pale for text on white (1.4:1), so text uses brand teals that pass WCAG AA. */}
+      <div className="hidden on-light border-b border-ice bg-white xl:block">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-10 text-xs text-deep-700">
+          <p className="flex items-center gap-3 font-mono tracking-[0.16em] text-deep">
+            <span aria-hidden="true" className="h-2 w-2 rounded-full bg-ice ring-1 ring-deep/30" />
+            {site.tagline}
+          </p>
           <div className="flex items-center gap-6">
-            <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 hover:text-white"><Mail size={13} aria-hidden="true" /> {site.email}</a>
-            <a href={site.socials.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white"><GithubIcon className="h-3.5 w-3.5" /> GitHub</a>
+            <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 transition-colors hover:text-midnight"><Mail size={13} aria-hidden="true" /> {site.email}</a>
+            <a href={site.socials.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-midnight"><GithubIcon className="h-3.5 w-3.5" /> GitHub</a>
           </div>
         </div>
       </div>
